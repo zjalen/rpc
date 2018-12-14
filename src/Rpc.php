@@ -102,9 +102,9 @@ class Rpc
             if(abs(time() - $requestPackage->getPackageTime()) < 2){
                 if($requestPackage->getSignature() === $requestPackage->generateSignature($this->config->getAuthKey())){
                     //忽略自己的广播
-                    if($requestPackage->getNodeId() == $this->config->getNodeId()){
-                        return;
-                    }
+                    //if($requestPackage->getNodeId() == $this->config->getNodeId()){
+                    //    return;
+                    //}
                     if($requestPackage->getAction() == 'NODE_BROADCAST'){
                         $info = $requestPackage->getArg();
                         //若对方节点没有主动告知ip，则以网关ip为准
